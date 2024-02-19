@@ -2,6 +2,8 @@
 define('SECRET_KEY', 'putoelquelee');
 define('ALGORITHM', 'HS256');
 define('ISSUER', 'ABMaster');
+define('COMPANY', "By Cats Programming");
+define('SERVERURL', "http://localhost/ABMaster/");
 
 // Configuración de la base de datos
 define('DB_HOST', 'localhost');

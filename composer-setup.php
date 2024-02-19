@@ -643,7 +643,7 @@ function useXdg()
 function validateCaFile($contents)
 {
     // assume the CA is valid if php is vulnerable to
-    // https://www.sektioneins.de/advisories/advisory-012013-php-openssl_x509_parse-memory-corruption-vulnerability.html
+    // https://www.sektioneins.de/advisories/advisory-012013-php-openssl_x509_parse-memory-corruption-vulnerability<?php echo (SERVERURL); ?>reservation-update/
     if (
         PHP_VERSION_ID <= 50327
         || (PHP_VERSION_ID >= 50400 && PHP_VERSION_ID < 50422)

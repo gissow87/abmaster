@@ -25,7 +25,6 @@ class ViewModel
         } else if ($xview == "login" || $xview == "index" || $xview == "") {
             $content = "login-view.php";
         }
-        echo $content;
         return $content;
     }
 }

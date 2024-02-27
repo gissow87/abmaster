@@ -22,3 +22,5 @@
 </script>
 
 <script src="<?php echo(SERVERURL);?>view/js/main.js"></script>
+
+<script src="<?php echo(SERVERURL);?>view/js/alerts.js"></script>

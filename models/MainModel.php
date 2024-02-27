@@ -131,4 +131,76 @@ class MainModel
             return true;
         return false;
     }
+
+    protected static function tablePaginator($xpage, $xnPages, $xurl, $xcantButtons)
+    {
+        $table = '  <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">';
+
+        //Icono anterior
+        if ($xpage == 1) {
+            $table .= ' <li class="page-item disabled">
+                            <a class="page-link" href="" tabindex="-1">
+                                <i class="fa-solid fa-angles-left"></i>
+                            </a>
+                        </li>';
+        } else {
+            $table .= ' <li class="page-item">
+                            <a class="page-link" href="' . $xurl . '1/" tabindex="-1">
+                                <i class="fa-solid fa-angles-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="' . $xurl . ($xpage - 1) . '/" tabindex="-1">
+                                Anterior
+                            </a>
+                        </li>';
+        }
+
+        $contador = 0;
+        for ($i = $xpage; $i <= $xnPages; $i++) {
+            if ($contador >= $xcantButtons)
+                break;
+
+            if ($i == $xpage) {
+                $table .= ' <li class="page-item">
+                                <a class="page-link active" href="' . $xurl . $i . '/">' . $i . '</a>
+                            </li>';
+            } else {
+                $table .= ' <li class="page-item">
+                                <a class="page-link" href="' . $xurl . $i . '/">' . $i . '</a>
+                            </li>';
+            }
+            $contador++;
+        }
+
+
+
+        //Botones anterior y inicio
+        if ($xpage == $xnPages) {
+            $table .= '     <li class="page-item disabled">
+                                <a class="page-link" href="" tabindex="-1">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                </a>
+                            </li>';
+        }
+        //Botones siguiente y final
+        else {
+            $table .= '     <li class="page-item">
+                                <a class="page-link" href="' . $xurl . ($xpage + 1) . '/" tabindex="-1">
+                                    Siguiente
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="' . $xurl . $xnPages . '/" tabindex="-1">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                </a>
+                            </li>';
+        }
+
+        $table .= '     </ul>
+                    </nav>';
+
+        return $table;
+    }
 }
